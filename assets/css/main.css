@@ -1,0 +1,406 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  list-style: none;
+}
+p{
+  margin: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(245, 243, 243);
+  padding: 0.5vh;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* slight box shadow */
+  z-index: 10005;
+  height: 5vh;
+}
+
+.header-section {
+  flex: 1;
+}
+
+.header-section h2 {
+  text-align: left;
+  /* Left text horizontally */
+  float: left;
+  margin: 10;
+  height: 100%;
+}
+
+.header-section .logo_H {
+  float: left;
+  width: 50px;
+  /* Set a width for the image */
+  height: auto;
+
+}
+
+.header-section:nth-child(2) {
+  text-align: center;
+  flex: 2.5;
+  /* 60% of the width */
+
+}
+
+.header-section:first-child,
+.header-section:last-child {
+  flex: 1.5;
+  /* 20% of the width each */
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
+
+}
+
+.header-section h1,
+.header-section h3 {
+    margin: 0;
+}
+
+#logoutBtn {
+
+  margin-left: auto;
+  max-width: 5rem;
+}
+
+/* Change background on hover */
+#logoutBtn:hover {
+  background-color: #3949ab;
+  /* Darker blue */
+}
+
+.profile-container {
+  display: flex;
+  justify-content: flex-end;
+  /* Align all content to the right */
+  align-items: center;
+  /* Align the image and text vertically */
+  gap: 10px;
+  /* Add space between image and text */
+  padding: 10px;
+  /* Optional: Adds some padding inside the container */
+}
+
+.profile-container img {
+  width: 50px;
+  /* Set a width for the image */
+  height: auto;
+  /* Maintain aspect ratio */
+  border-radius: 50%;
+  /* Optional: Makes the image circular */
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  /* Align text to the right */
+
+}
+
+.profile-info .name {
+  text-transform: capitalize;
+  /* Capitalize the first letter of each word */
+}
+
+#map {
+  height: 94vh; /* Fullscreen height */
+  width: 100vw; /* Fullscreen width */
+  position: flex;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Ensures the map stays behind other elements */
+}
+
+/* Container for the buttons */
+#buttonContainer {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  gap: 10px; /* Add space between the buttons */
+  padding: 10px;
+  position: fixed;
+  top: 7vh;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally on the page */
+  z-index: 10000; /* Ensure buttons are on top of other content */
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+}
+
+#markerCoordinatesContainer {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  gap: 10px; /* Add space between the buttons */
+  padding: 10px;
+  position: fixed;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally on the page */
+  z-index: 10000; /* Ensure buttons are on top of other content */
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+}
+
+/* Styling for the buttons */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+h4{
+    margin: 0;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+#resetButton {
+  background-color: #28a745;
+
+}
+
+#resetButton:hover {
+  background-color: #218838;
+}
+
+.pemirtOptionButton{
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+/* Modal (asset list) - ensure it is scrollable and fits within the viewport */
+#assetModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 16px; /* Keep padding for the rest of the modal */
+  border-right: 2px solid #ccc;
+  flex-direction: column;
+}
+
+/* Modal header - stays at the top and spans the full width */
+#assetModalHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: calc(100% + 40px); /* Extend beyond the parent padding */
+  margin-left: -20px; /* Offset to the left by the padding */
+  padding: 10px;
+  background-color: white;
+  z-index: 10000;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Modal close button - sticky position */
+#closeModal {
+  position: absolute; /* Use sticky positioning */
+  top: 0; /* Stick to the top of the modal */
+  right: 20px; /* Add some space to the right */
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  background-color: white; /* Background color to ensure visibility */
+  padding: 10px;
+  border: none;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+#assetModal h2 {
+  text-align: center;
+  font-size: 22px;
+  margin: 0;
+}
+
+#assets {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.asset-item {
+  padding: 15px;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.asset-item:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.asset-item strong {
+  display: block;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Add responsiveness */
+@media only screen and (max-width: 768px) {
+  #assetModal {
+    width: 80vw;
+  }
+}
+
+/* Details Panel (right side) - hidden by default */
+.details-panel {
+    position: fixed;
+    top: 0;
+    right: -60vw; /* Hide off-screen initially */
+    width: 20vw; /* Default width */
+    height: 100vh;
+    background-color: white;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease; /* Smooth transition for sliding in/out */
+    z-index: 10001;
+    padding: 0 20px;
+    overflow-y: auto;
+}
+
+/* Close button for the details panel */
+#closeDetails {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Resize handle */
+#resizeHandle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #ccc;
+    cursor: ew-resize; /* East-west resize cursor */
+}
+
+/* Styling for the details content */
+#detailsContent {
+    margin-top: 40px;
+}
+
+
+/* Style for the search bar */
+#searchBar {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: sticky; /* Make the search bar sticky */
+  top: 0; /* Stick to the top of the asset list */
+  background-color: white; /* Ensure it has a background color */
+  z-index: 1000; /* Ensure it's above other content when scrolling */
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .leaflet-control-custom {
+    background: white;
+    padding: 10px;
+    font-size: 14px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+#loadingScreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10005;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;  /* Fully visible initially */
+    transition: opacity 1s ease;  /* Transition the opacity for 1 second */
+}
+
+/* Center the loading screen content */
+#loadingScreen h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Optional: Spinner styling */
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.leaflet-control-layers
+#routeBox{
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.polyline-tooltip {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid black;
+}

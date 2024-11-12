@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>A66 Scheme 3a Permit Tool</title>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    >
+    <link rel="stylesheet" href="./assets/css/main.css" >
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-measure/dist/leaflet-measure.css" >
+    <script src="./js/leaflet-omnivore.min.js"></script>
+    <script src="./js/variables.js"></script>
+    <link rel="icon" href="assets/media/Keltbray-logo_single.png" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <div class="header-section">
+        <img alt="" id="headerlogo" class="logo_H" src="../assets/media/Keltbray-logo_single.png">
+        <h2>Keltbray ISL <br>DD Hub</h2>
+      </div>
+      <div class="header-section">
+        <h1>A66 Scheme 3a Permit Tool</h1>
+      </div>
+      <div class="header-section">
+        <div class="profile-container">
+          <div>
+            <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+          </div>
+          <div class="profile-info">
+            <div><strong id="userName" class="name"> </strong></div>
+            <div id="userEmail"></div>
+            
+          </div>
+  
+          <img id="userPicture" alt="User Profile Image" src="https://images.profile.autodesk.com/default/user_X58.png">
+        </div>
+      </div>
+    </header>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" >
+        <div>
+            <div class="spinner"></div>  <!-- You can add a spinner here -->
+            <h2>Loading...</h2>
+        </div>
+    </div>
+    <!-- Button Container -->
+    <div id="buttonContainer">
+      <!-- Toggle Button for Asset List -->
+      <button id="toggleButton">Show Permits</button>
+      <button id="toggleButtonNewPermit">Create Permit</button>
+      <!-- Reset Button for Resetting Map View -->
+      <button id="resetButton" tooltip="Reset View">↻</button>
+    </div>
+    <div id="markerCoordinatesContainer">
+      <p id="latitudeInput"></p>
+      <p id="longitudeInput"></p>
+    </div>
+    <!-- Fullscreen Map -->
+    <div id="map"></div>
+
+    <!-- Asset Modal -->
+    <div id="assetModal">
+      <div id="assetModalHeader">
+        <span id="closeModal">&times;</span>
+        <h2>Assets</h2>
+        <!-- Search Bar -->
+        <input
+          type="text"
+          id="searchBar"
+          placeholder="Search assets..."
+          onkeyup="searchAssets()"
+        />
+      </div>
+      <div id="assets"></div>
+    </div>
+
+<!-- Right-Side Details Panel -->
+<div id="detailsPanel" class="details-panel">
+    <div id="resizeHandle"></div>
+    <span id="closeDetails">&times;</span>
+    <h2>Asset Details</h2>
+    <div id="detailsContent">
+        <!-- Detailed asset info will be placed here -->
+    </div>
+</div>
+
+
+    <!-- Leaflet JS -->
+
+    <script src="https://unpkg.com/leaflet-measure/dist/leaflet-measure.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="./js/getAssetData.js"></script>
+    <!-- Link your script file here -->
+  </body>
+</html>
